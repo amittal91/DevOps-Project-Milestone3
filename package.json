@@ -9,7 +9,6 @@
   "author": "",
   "license": "BSD-2-Clause",
   "devDependencies": {
-  	"needle" : "^0.10.0",
-    "aws-sdk": "*"
+  	"needle" : "^0.10.0"
   }
 }
