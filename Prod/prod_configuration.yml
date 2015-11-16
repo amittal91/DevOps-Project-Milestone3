@@ -10,3 +10,6 @@
     - name: Installing unzip
       apt: pkg=unzip state=installed update_cache=true
 
+    - name: Linking nodejs to run as "node"
+      command: ln -s /usr/bin/nodejs /usr/bin/node
+

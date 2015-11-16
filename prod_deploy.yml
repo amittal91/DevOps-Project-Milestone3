@@ -11,10 +11,7 @@
       unarchive: src='App.zip' dest='/M3/' copy='yes'
 
     - name: npm install
-      npm: path=/M3/
-
-    - name: Linking nodejs to run as "node"
-      command: ln -s /usr/bin/nodejs /usr/bin/node
+      npm: path=/M3/App
 
     - name: "Start example Node.js app."
-      command: forever start /M3/app.js
+      command: forever start /M3/App/app.js
