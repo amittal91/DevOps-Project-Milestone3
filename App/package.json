@@ -1,0 +1,14 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "sample app for milestone 3",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "karishma nimgaonkar",
+  "license": "ISC",
+  "devDependencies": {
+  	"express" : "^4.13.3"
+  }
+}
