@@ -3,5 +3,10 @@
   tasks:
     - name: Installing nodeJs
       apt: pkg=nodejs state=installed update_cache=true
+
     - name: Installing npm
       apt: pkg=npm state=installed update_cache=true
+
+    - name: Installing unzip
+      apt: pkg=unzip state=installed update_cache=true
+
