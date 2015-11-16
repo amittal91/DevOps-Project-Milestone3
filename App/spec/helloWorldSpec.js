@@ -13,7 +13,7 @@ describe("Hello World Server", function() {
 
     it("returns Hello World", function(done) {
       request.get(base_url, function(error, response, body) {
-        expect(body).toBe("Hello everyone! This is a very basic app for Milestone 3");
+        expect(body).toBe("Hello everyone! This is a very basic app for Milestone ");
         done();
       });
     });
