@@ -23,4 +23,4 @@
       command: forever start /M3/App/app.js
 
     - name: "Start Monitoring service"
-      command: sh /Monitoring/Monitor/monitor.sh
+      command: sh /Monitoring/Monitor/monitor.sh&
