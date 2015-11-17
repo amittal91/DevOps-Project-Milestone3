@@ -6,7 +6,7 @@
       file: path=/M3 state=directory
 
     - name: Copying redis info file
-      copy: src='App/redis_server.json' dest='.'
+      copy: src='App/redis_server.json' dest='/'
 
     - name: unzip App and copy to destination
       unarchive: src='App.zip' dest='/M3/' copy='yes'
