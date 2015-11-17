@@ -9,10 +9,10 @@
       unarchive: src='App.zip' dest='/M3/' copy='yes'
 
     - name: npm install
-      npm: path=/M3/App
+      npm: path=/M3/App global=yes
 
-    - name: Switching to App directory
-      command: cd /M3/App
+    # - name: Switching to App directory
+    #   command: cd /M3/App
 
     - name: "Start Node.js app."
-      command: forever start app.js
+      command: forever start /M3/App/app.js
