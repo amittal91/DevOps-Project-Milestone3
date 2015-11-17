@@ -1,5 +1,5 @@
 #!/bin/bash
-sysname = $(hostname)
+sysname=$(hostname)
 while :
 do
     cpuOutput=$(python /Monitoring/Monitor/cpuMonitor.py)
