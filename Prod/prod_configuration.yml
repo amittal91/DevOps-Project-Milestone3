@@ -7,6 +7,9 @@
     - name: Installing npm
       apt: pkg=npm state=installed update_cache=true
 
+    - name: "Install forever (to run Node.js app)."
+      npm: name=forever global=yes state=latest
+
     - name: Installing unzip
       apt: pkg=unzip state=installed update_cache=true
 
@@ -15,6 +18,9 @@
 
     - name: Installing python-dev
       apt: pkg=python-dev state=installed update_cache=true
+
+    - name: Installing psutil
+      command: pip install psutil
 
     - name: Linking nodejs to run as "node"
       command: ln -s /usr/bin/nodejs /usr/bin/node

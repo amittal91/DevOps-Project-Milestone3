@@ -1,8 +1,6 @@
 ---
 - hosts: droplets
   tasks:
-    - name: "Install forever (to run Node.js app)."
-      npm: name=forever global=yes state=latest
 
     - name: create M3
       file: path=/M3 state=directory
