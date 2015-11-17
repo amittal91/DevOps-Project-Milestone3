@@ -1,0 +1,28 @@
+#!/bin/bash
+echo "Running post-commit hook"
+/usr/bin/curl --user devops:devops -s http://localhost:8080/job/Milestone3/build?token=12345
+
+echo "Trying to fetch build status for current build......"
+sleep 10
+JSON=$(wget -qO- http://127.0.0.1:8080/job/Milestone3/lastBuild/api/json)
+RESULT=$(echo $JSON | grep -oe '"result":"\w\+"' | cut -d \" -f4 | tr -d '\n')
+
+while [ -z $RESULT ]; do
+    echo "Waiting for the build to get completed"
+    sleep 5
+    JSON=$(wget -qO- http://127.0.0.1:8080/job/Milestone3/lastBuild/api/json)
+    RESULT=$(echo $JSON | grep -oe '"result":"\w\+"' | cut -d \" -f4 | tr -d '\n')
+done
+
+echo "Found build status"
+
+if [ $RESULT = "FAILURE" ]; then
+    echo "Build was a failure !!"
+    echo "Fetching previous commit and resetting it"
+    commits=$(git log -n 2 --pretty=format:"%H")
+    previousCommit=$(echo $commits | awk '{print $2}')
+    git reset $previousCommit
+    echo "Build reset to previous commit"
+else
+    echo "Your build was successful! Please run <git push> to deploy your changes to prod." 
+fi
