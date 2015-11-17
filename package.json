@@ -1,0 +1,23 @@
+{
+  "name": "featureflags",
+  "version": "1.0.0",
+  "description": "featureflags demo",
+  "main": "featureFlag.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amittal91/DevOps-Project-Milestone3.git"
+  },
+  "author": "karishma nimgaonkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amittal91/DevOps-Project-Milestone3/issues"
+  },
+  "homepage": "https://github.com/amittal91/DevOps-Project-Milestone3#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "redis": "^2.3.0"
+  }
+}
