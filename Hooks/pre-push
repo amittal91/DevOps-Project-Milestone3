@@ -3,6 +3,8 @@
 echo "Pushing your changes to github..."
 echo "Deploying your changes to prod"
 zip App.zip App/app.js App/package.json App/spec/helloWorldSpec.js
+zip Monitor.zip Monitor/monitor.sh Monitor/cpuMonitor.py Monitor/memoryMonitor.py
 ansible-playbook -i inventory --sudo prod_deploy.yml
 rm App.zip
+rm Monitor.zip
 echo "Your changes have been deployed."

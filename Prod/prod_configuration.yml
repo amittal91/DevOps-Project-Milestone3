@@ -10,6 +10,12 @@
     - name: Installing unzip
       apt: pkg=unzip state=installed update_cache=true
 
+    - name: Installing python-pip
+      apt: pkg=python-pip state=installed update_cache=true
+
+    - name: Installing python-dev
+      apt: pkg=python-dev state=installed update_cache=true
+
     - name: Linking nodejs to run as "node"
       command: ln -s /usr/bin/nodejs /usr/bin/node
 
