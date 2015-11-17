@@ -11,14 +11,8 @@
     - name: unzip App and copy to destination
       unarchive: src='App.zip' dest='/M3/' copy='yes'
 
-    - name: unzip Monitoring and copy to destination
-      unarchive: src='Monitor.zip' dest='/Monitoring/' copy='yes'
-
     - name: npm install
       npm: path=/M3/App
 
     - name: "Start example Node.js app."
       command: forever start /M3/App/app.js
-
-    - name: "Start Monitoring service"
-      command: sh /Monitoring/Monitor/monitor.sh&
