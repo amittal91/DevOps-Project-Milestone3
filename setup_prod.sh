@@ -1,5 +1,5 @@
 #!/bin/bash
-zip Monitor.zip Monitor/monitor.sh Monitor/cpuMonitor.py Monitor/memoryMonitor.py
+zip Prod/Monitor.zip Monitor/monitor.sh Monitor/cpuMonitor.py Monitor/memoryMonitor.py
 cd Prod/
 pwd
 echo "-------------------------------------------------------------------------"

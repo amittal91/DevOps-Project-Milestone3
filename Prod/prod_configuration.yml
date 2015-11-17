@@ -25,6 +25,9 @@
     - name: Linking nodejs to run as "node"
       command: ln -s /usr/bin/nodejs /usr/bin/node
 
+    - name: create Monitoring
+      file: path=/Monitoring state=directory
+
     - name: unzip Monitoring and copy to destination
       unarchive: src='Monitor.zip' dest='/Monitoring/' copy='yes'
 

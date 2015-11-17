@@ -5,9 +5,6 @@
     - name: create M3
       file: path=/M3 state=directory
 
-    - name: create Monitoring
-      file: path=/Monitoring state=directory
-
     - name: unzip App and copy to destination
       unarchive: src='App.zip' dest='/M3/' copy='yes'
 
