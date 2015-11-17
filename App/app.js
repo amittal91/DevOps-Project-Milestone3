@@ -7,6 +7,7 @@ var input = fs.readFileSync('./redis_server.json');
 var redis_ip;
 var redis_port;
 
+
 try {
     redisServer = JSON.parse(input);
     redis_ip = redisServer.redis_ip;
