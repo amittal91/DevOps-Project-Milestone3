@@ -11,5 +11,8 @@
     - name: npm install
       npm: path=/M3/App
 
-    - name: "Start example Node.js app."
-      command: forever start /M3/App/app.js
+    - name: Switching to App directory
+      command: cd /M3/App
+
+    - name: "Start Node.js app."
+      command: forever start app.js
