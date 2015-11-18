@@ -1,0 +1,36 @@
+---
+- hosts: droplets
+  tasks:
+    - name: Installing nodeJs
+      apt: pkg=nodejs state=installed update_cache=true
+
+    - name: Installing npm
+      apt: pkg=npm state=installed update_cache=true
+
+    - name: Installing unzip
+      apt: pkg=unzip state=installed update_cache=true
+
+    - name: Linking nodejs to run as "node"
+      command: ln -s /usr/bin/nodejs /usr/bin/node
+
+    - name: "Install forever (to run Node.js app)."
+      npm: name=forever global=yes state=latest
+
+    - name: create Proxy
+      file: path=/Proxy state=directory
+
+    - name: unzip Proxy and copy to destination
+      unarchive: src='Proxy.zip' dest='/Proxy/' copy='yes'
+
+    - name: Copying files
+      copy: src='proxy_servers.json' dest='/'
+
+    - name: Copying files
+      copy: src='redis_server.json' dest='/'
+
+    - name: npm install
+      npm: path=/Proxy/Proxy/
+
+    - name: "Start proxy server"
+      command: sudo forever start /Proxy/Proxy/proxyServer.js
+
