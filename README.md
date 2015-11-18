@@ -21,6 +21,11 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 * Our script namely ['setup_prod.sh'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/setup_prod.sh) would be executed for this task. This would create a Prod server and through ansible playbook command configure all dependencies/pre-requisites on the remote server
 
 #### Triggered, remote deployment
+* We have used Jenkins as the Build Server and configured a job to track the local git repository for our node js application
+* We have written a ['post-commit hook'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/post-commit) to trigger the build in Jenkins. This hook track the status of the build. If the build fails due to either test failure or PMD analysis failure, the repo will get reset to the previous stable commit
+* When the build is successful, the user can push the changes to the remote repository
+* We have written a ['pre-push hook'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/pre-push) that would deploy the changes to remote git repository and to the production server via ansible. The file namely ['prod_deploy.yml'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/prod_deploy.yml) will be used by ansible to push the changes and start the server on the remote prod server
+
 #### Feature Flags
 #### Metrics and alerts
 #### Canary releasing
