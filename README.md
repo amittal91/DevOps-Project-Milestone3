@@ -23,6 +23,8 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 #### Triggered, remote deployment
 * We have used Jenkins as the Build Server and configured a job to track the local git repository for our node js application
 * We have written a ['post-commit hook'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/post-commit) to trigger the build in Jenkins. This hook track the status of the build. If the build fails due to either test failure or PMD analysis failure, the repo will get reset to the previous stable commit
+* We have used Jasmine testing for node js app and specified the same in ['package.json'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/App/package.json). The tests are written in ['spec'](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/App/spec) directory
+* We have used PMD to do analysis of node js files and the command `Add Command` has been configured in the Jenkins job
 * When the build is successful, the user can push the changes to the remote repository
 * We have written a ['pre-push hook'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/pre-push) that would deploy the changes to remote git repository and to the production server via ansible. The file namely ['prod_deploy.yml'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/prod_deploy.yml) will be used by ansible to push the changes and start the server on the remote prod server
 
