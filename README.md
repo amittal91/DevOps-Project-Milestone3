@@ -35,7 +35,13 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 * Every request sent to `http://localhost:3001/feature` would toggle the flag value, thereby enabling or disabling the feature in production
 
 #### Metrics and alerts
+
 #### Canary releasing
+* We have created another Digital Ocean droplet that would be used as a Canary Server. We have created another branch named 'canary' for canary release. The process for spinning up a droplet, automatic configuration management and triggered remote deployments for this server are identical to the actual Production Server as mentioned in first two steps. The branch contents can be viewed [here](https://github.com/amittal91/DevOps-Project-Milestone3/tree/canary)
+* Canary Release - We have made a slight change in the message displayed on the homepage of the [app](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/App/app.js) and displayed the process of canary release to this server from canary branch
+* We created an http proxy server on another Droplet that would handle routing to Production and Canary Servers in the ratio of 3:1 i.e. 75% requests routed to Production server and 25% requests routed to Canary Server. 
+* Further, we have used the same global redis store to store the value of whether an alert has been raised or not on the canary server. This value is used by the proxy server to determine if alert is yes or no. If alert is yes, then traffic will be routed to Production server instead of Canary, thus sending all requests to only Production
+* The code that deals with distributing traffic and stops routing traffic to canary when alert is reached can be found in [proxyServer.js](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/ProxyServer/proxyServer.js) file
 
 ### Screencast
 
