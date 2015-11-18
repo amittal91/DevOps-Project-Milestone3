@@ -18,15 +18,9 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 * The code related to spinning up a droplet acting as the Production Server, creating inventory entry, production server configuration yml read by ansible playbook can be found in the ['Prod'](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/Prod) directory
 * A file namely 'digitalocean_config.json' would have key-value pairs for token, ssh_key and keypath to the private key
 * The file ['prod_configuration.yml'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Prod/prod_configuration.yml) contains all the pre-requisites like nodejs, npm, forever, python, etc which would be installed as a part of configuration management on the Prod Server
-* Our script namely ['setup_prod.sh'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/setup_prod.sh) would be executed for this task. This would create a Prod server and through ansible configure all dependencies/pre-requisites on the remote server
+* Our script namely ['setup_prod.sh'](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/setup_prod.sh) would be executed for this task. This would create a Prod server and through ansible playbook command configure all dependencies/pre-requisites on the remote server
 
 #### Triggered, remote deployment
 #### Feature Flags
 #### Metrics and alerts
 #### Canary releasing
-
-1. Digital Ocean Droplet through js file and needle sdk
-2. Setup token and fetch ssh key id through curl command for js to create the droplet
-3. inventory file automatically created
-4. ansible yml/playbook contains npm and nodejs
-5. Run playbook to configure dependencies on prod host
