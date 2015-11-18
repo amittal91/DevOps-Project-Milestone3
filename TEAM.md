@@ -12,10 +12,11 @@ Team Trilith
 | Sr. No. | Task | Performed by |
 |---------|------|--------------|
 | 1. | Initial Research | Karishma Nimgaonkar, Apoorv Mittal, Abhishek Preman|
-| 2. |  | Apoorv Mittal, Karishma Nimgaonkar |
-| 3. |  | Karishma Nimgaonkar |
-| 4. |  | Apoorv Mittal, Karishma Nimgaonkar, Abhishek Preman |
-| 5. |  | Karishma Nimgaonkar, Abhishek Preman | 
-| 6. |  | Apoorv Mittal |
-| 7. |  | Abhishek Preman |
-| 8. | Demo | Karishma Nimgaonkar, Apoorv Mittal, Abhishek Preman|
+| 2. | Ansible automatic Configuration Management | Apoorv Mittal |
+| 3. | Jasmine Tests, PMD Analysis | Karishma Nimgaonkar |
+| 4. | Jenkins Job, post-commit hook and pre-push hook / Triggered Remote Deployment | Apoorv Mittal, Karishma Nimgaonkar |
+| 5. | Setting up global redis store and remote access | Abhishek Preman | 
+| 6. | Feature Flags | Abhishek Preman, Karishma Nimgaonkar |
+| 7. | SMTP server setup and monitoring | Apoorv Mittal, Abhishek Preman |
+| 8. | Canary Release, Proxy Server routing and stop routing on alert | Apoorv Mittal, Karishma Nimgaonkar|
+| 9. | Demo | Karishma Nimgaonkar, Apoorv Mittal, Abhishek Preman|
