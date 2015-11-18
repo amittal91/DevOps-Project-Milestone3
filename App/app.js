@@ -20,7 +20,7 @@ catch (err) {
 var client = redis.createClient(redis_port, redis_ip, {})
 
 app.get('/', function (req, res) {
-  res.send('Hello everyone! This is a very basic app for Milestone 3');
+  res.send('CANARY --- Hello everyone! This is a very basic app for Milestone 3');
 });
 
 app.get('/get', function(req, res) {
