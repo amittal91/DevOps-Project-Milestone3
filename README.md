@@ -10,7 +10,7 @@ For this milestone, we have created droplets on Digital Ocean that would act as 
 
 We have re-used the code of HW1 for spinning up digital ocean droplets using 'needle' api and creating the inventory file entry that is read by ansible playbook.
 
-We have used ansible as the Configuration Management Tool and Jenkins as the Build Server. We have created a sample node js app with Jasmine Testing and PMD Analysis.
+We have used Ansible as the Configuration Management Tool and Jenkins as the Build Server. We have created a sample node js app and added Jasmine Tests and PMD Analysis to it.
 
 ### Tasks
 
