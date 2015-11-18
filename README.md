@@ -30,7 +30,7 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 
 #### Feature Flags
 * We have used a Global Redis Store to maintain the value of feature flag setting. We used another Digital Ocean droplet as the Redis Server by installing Redis as follows `apt-get install redis-server`. Further modified the file `/etc/redis/redis.conf` and updated the value `bind 127.0.0.1` to `bind 0.0.0.0` to set up remote access to redis server
-* We have created another [node js app](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/FeatureFlag) running at `http://localhost:3001` would toggle the value of feature flag. This flag value will be accessed in Production Server by our app to provide access to the functionality of `set/get tokens`
+* We have created another [node js app](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/FeatureFlag) running at `http://localhost:3001` would toggle the value of feature flag. This flag value will be accessed in Production Server by our [app](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/App/app.js) to provide access to the functionality of `set/get tokens`
 * By default, the feature flag would be set to true, thus giving access to set/get functionality on prod server
 * Every request sent to `http://localhost:3001/feature` would toggle the flag value, thereby enabling or disabling the feature in production
 
