@@ -38,7 +38,7 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 * The folder named [Monitor](https://github.com/amittal91/DevOps-Project-Milestone3/tree/canary/Monitor) contains the scripts that deal with metrics monitoring
 * We are monitoring two metrics - `CPU Utilization and Memory Utilization` using python scripts named [cpuMonitor.py](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/cpuMonitor.py) and [memoryMonitor.py](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/memoryMonitor.py) and psutils library
 * We have set 60% and 30% as threshold values for cpu and mem utilization respectively as found [here](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/monitor.sh)
-* We have configured smtp server for the ability to send email notifications when the metrics exceed threshold values
+* We have configured smtp server by following the steps mentioned [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04) for the ability to send email notifications when the metrics exceed threshold values
 
 #### Canary releasing
 * We have created another Digital Ocean droplet that would be used as a Canary Server. We have created another branch named 'canary' for canary release. The process for spinning up a droplet, automatic configuration management and triggered remote deployments for this server are identical to the actual Production Server as mentioned in first two steps. The branch contents can be viewed [here](https://github.com/amittal91/DevOps-Project-Milestone3/tree/canary)
