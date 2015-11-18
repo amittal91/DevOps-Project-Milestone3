@@ -18,7 +18,7 @@ catch (err) {
 var client = redis.createClient(redis_port, redis_ip, {})
 
 var alertVal = process.argv[2]
-console.log("Alert val: " + alertVal)
+// console.log("Alert val: " + alertVal)
 
 client.lpop('alertValThreshold', function(err, rep) {
 	client.lpush('alertValThreshold', alertVal, function (err1, rep1) {

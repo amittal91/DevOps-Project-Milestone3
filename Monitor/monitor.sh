@@ -13,7 +13,7 @@ do
         echo The Memory usage is high. $memOutput% | mail -s "High memory usage for $sysname" mittal.apoorv91@gmail.com
         # node redisAlert.js "yes"
     fi
-    sleep 1m
+    sleep 2m
 done
 
 
