@@ -35,12 +35,16 @@ We have used ansible as the Configuration Management Tool and Jenkins as the Bui
 * Every request sent to `http://localhost:3001/feature` would toggle the flag value, thereby enabling or disabling the feature in production
 
 #### Metrics and alerts
+* The folder named [Monitor](https://github.com/amittal91/DevOps-Project-Milestone3/tree/canary/Monitor) contains the scripts that deal with metrics monitoring
+* We are monitoring two metrics - `CPU Utilization and Memory Utilization` using python scripts named [cpuMonitor.py](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/cpuMonitor.py) and [memoryMonitor.py](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/memoryMonitor.py) and psutils library
+* We have set 60% and 30% as threshold values for cpu and mem utilization respectively as found [here](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/Monitor/monitor.sh)
+* We have configured smtp server for the ability to send email notifications when the metrics exceed threshold values
 
 #### Canary releasing
 * We have created another Digital Ocean droplet that would be used as a Canary Server. We have created another branch named 'canary' for canary release. The process for spinning up a droplet, automatic configuration management and triggered remote deployments for this server are identical to the actual Production Server as mentioned in first two steps. The branch contents can be viewed [here](https://github.com/amittal91/DevOps-Project-Milestone3/tree/canary)
 * Canary Release - We have made a slight change in the message displayed on the homepage of the [app](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/App/app.js) and displayed the process of canary release to this server from canary branch
 * We created an http proxy server on another Droplet that would handle routing to Production and Canary Servers in the ratio of 3:1 i.e. 75% requests routed to Production server and 25% requests routed to Canary Server. 
-* Further, we have used the same global redis store to store the value of whether an alert has been raised or not on the canary server. This value is used by the proxy server to determine if alert is yes or no. If alert is yes, then traffic will be routed to Production server instead of Canary, thus sending all requests to only Production
+* Further, we have used the same global redis store to store the value of whether an alert has been raised or not on the canary server. When the monitoring script is invoked, it checks if values are above threshold. If yes, the value is stored in redis through [redis client](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/redisAlert.js). This value is used by the proxy server to determine if alert is yes or no. If alert is yes, then traffic will be routed to Production server instead of Canary, thus sending all requests to only Production
 * The code that deals with distributing traffic and stops routing traffic to canary when alert is reached can be found in [proxyServer.js](https://github.com/amittal91/DevOps-Project-Milestone3/blob/canary/ProxyServer/proxyServer.js) file
 
 ### Screencast
