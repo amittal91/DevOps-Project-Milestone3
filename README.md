@@ -22,7 +22,7 @@ We have used Ansible as the Configuration Management Tool and Jenkins as the Bui
 
 #### Triggered, remote deployment
 * We have used Jenkins as the Build Server and configured a job to track the local git repository for our node js application. Jenkins configuration files are present [here](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/Jenkins)
-* We have written a [post-commit hook](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/post-commit) to trigger the build in Jenkins. This hook track the status of the build. If the build fails due to either test failure or PMD analysis failure, the repo will get reset to the previous stable commit
+* We have written a [post-commit hook](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/Hooks/post-commit) to trigger the build in Jenkins. This hook tracks the status of the build. If the build fails due to either test failure or PMD analysis failure, the repo will get reset to the previous stable commit
 * We have used Jasmine testing for node js app and specified the same in [package.json](https://github.com/amittal91/DevOps-Project-Milestone3/blob/master/App/package.json). The tests are written in [spec](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/App/spec) directory
 * We have used PMD to do analysis of node js files and the command `$WORKSPACE/pmd-bin-5.4.0/bin/run.sh pmd -d $WORKSPACE/App/app.js -R rulesets/ecmascript/braces.xml -f xml -language javascript &gt; pmd.xml` has been configured in the Jenkins job. The zip for pmd is located [here](https://github.com/amittal91/DevOps-Project-Milestone3/tree/master/pmd-bin-5.4.0)
 * When the build is successful, the user can push the changes to the remote repository
